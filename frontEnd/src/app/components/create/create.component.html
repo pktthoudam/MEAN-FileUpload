@@ -1,0 +1,36 @@
+<div class="container">
+    <h2>Create users</h2>
+
+    <form [formGroup]="form1" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="fname" class="form-label">First Name</label>
+            <input type="text" class="form-control" formControlName="fname">
+        </div>
+        <div class="mb-3">
+            <label for="lname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" formControlName="lname">
+        </div>
+        <div class="mb-3">
+            <label for="fname" class="form-label">Image</label>
+            <input type="file" class="form-control" (change)="fileChangeEvent($event)">
+        </div>
+        <div >
+            <image-cropper 
+            [imageChangedEvent]="imageChangedEvent" 
+            [maintainAspectRatio]="true" 
+            [aspectRatio]="4 / 4"
+            [resizeToWidth]="256" 
+            format="png" 
+            (imageCropped)="imageCropped($event)" 
+            (imageLoaded)="imageLoaded()"
+            (cropperReady)="cropperReady()" 
+            (loadImageFailed)="loadImageFailed()">
+        </image-cropper>
+        </div>
+        <div >
+            <img [src]="croppedImage" alt="">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="create()">Submit</button>
+    </form>
+
+</div>

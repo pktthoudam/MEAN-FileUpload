@@ -1,0 +1,24 @@
+<div class="container">
+    <h2 class="text-center text-primary">List of Users</h2>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <!-- <th scope="col">#</th> -->
+            <th scope="col">Image</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of Users">
+            <!-- <th scope="row">{{user._id}}</th> -->
+            <td><img src="{{user.avatar}}" alt=""></td>
+            <td>{{user.fname}}</td>
+            <td>{{user.lname}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    
+</div>
